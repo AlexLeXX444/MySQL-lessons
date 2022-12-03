@@ -103,11 +103,12 @@ CREATE TABLE orders
 );
 
 INSERT INTO `gb_lesson2`.orders (order_number, order_date_time, order_cost, order_good_id, order_sale_id) 
-VALUES('00000001', '20090604181356', 3590, 1, 1);
+VALUES('00000001', '20090604181356', 3590, 5, 1);
 INSERT INTO `gb_lesson2`.orders (order_number, order_date_time, order_cost, order_good_id, order_sale_id) 
-VALUES('00000002', '20221201112203', 7990, 2, 2);
+VALUES('00000002', '20221201112203', 7990, 7, 2);
 
 /**/
-SELECT *,
-    CASE 
-        WHEN order_good_id
+SELECT order_number AS "Order number", order_date_time AS "Order date", order_cost AS "Cost", 
+    (CASE WHEN order_good_id THEN (SELECT good_name FROM goods WHERE good_id = order_good_id) ELSE NULL END) AS "Good name",
+    (CASE WHEN order_sale_id THEN (SELECT sale_number FROM sales WHERE sales_id = order_sale_id) ELSE NULL END) AS "Sale number"
+FROM orders;
