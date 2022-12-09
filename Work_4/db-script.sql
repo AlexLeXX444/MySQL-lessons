@@ -156,3 +156,25 @@ INSERT INTO mans (man_phonenum, man_firstname, man_lastname, man_city_code, man_
 ('9213333331','Андрей','Некрасов', 2, 27),
 ('9213333332','Миша','Рогозин', 2, 21),
 ('9214444444','Алексей','Галкин', 1, 38);
+
+/**/
+CREATE TABLE test_a (
+    id INT, 
+    data VARCHAR(1)
+);
+
+INSERT INTO test_a (id, data) VALUES
+(10, 'A'),
+(20, 'A'),
+(30, 'F'),
+(40, 'D'),
+(50, 'C');
+
+CREATE TABLE test_b (
+    id INT
+);
+
+INSERT INTO test_b (id) VALUES
+(10),
+(30),
+(50);
